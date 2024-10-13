@@ -1,0 +1,23 @@
+# NOTE: 1 and 2 must have the same label
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: replica-apps
+  labels:
+    app: replica-label
+spec:
+  selector:
+    matchLabels:
+      # 1
+      app: my-replica
+  replicas: 3
+  template:
+    metadata:
+      name: replica-apps
+      labels:
+        # 2
+        app: my-replica
+    spec:
+      containers:
+        - name: nginx
+          image: nginx

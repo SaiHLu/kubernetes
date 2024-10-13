@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-2
+  labels:
+    env: development
+    app: my-replica
+    group: nginx-server
+spec:
+  containers:
+    - name: nginx
+      image: nginx
